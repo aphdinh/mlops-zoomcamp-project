@@ -27,6 +27,14 @@ env/
 ENV/
 env.bak/
 venv.bak/
+.venv/
+
+# mlflow
+mlruns/
+mlartifacts/
+
+# monitoring report
+reports/monitoring/
 
 # Jupyter Notebook
 .ipynb_checkpoints

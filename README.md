@@ -2,9 +2,39 @@
 
 A complete end-to-end machine learning project for predicting bike rental demand in Seoul, implementing industry-standard MLOps practices with cloud deployment and monitoring.
 
+## 📋 About
+
+This project demonstrates a production-ready MLOps pipeline for predicting Seoul bike sharing demand. Built with modern tools like MLflow, Prefect, FastAPI, and Evidently, it showcases best practices in machine learning operations including experiment tracking, workflow orchestration, model deployment, and continuous monitoring.
+
+**Key Features:**
+- 🚀 **End-to-end ML pipeline** with automated training and deployment
+- 📊 **Real-time monitoring** with data drift detection and performance tracking  
+- ☁️ **Cloud-native** with AWS infrastructure and Terraform IaC
+- 🔄 **CI/CD pipeline** with GitHub Actions for automated testing and deployment
+- 📈 **Model performance** achieving 85-94% R² score with LightGBM/XGBoost
+
 ## 🎯 Problem Statement
 
 Predict the number of bikes rented in Seoul based on weather conditions, time features, and seasonal patterns. This project demonstrates a production-ready ML pipeline with automated training, deployment, monitoring, and retraining capabilities.
+
+## 📊 Data Source
+
+This project uses the **Seoul Bike Sharing Demand** dataset from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Seoul+Bike+Sharing+Demand).
+
+**Dataset Characteristics:**
+- **Size**: 8,760 instances (1 year of hourly data)
+- **Features**: 13 variables including weather data and temporal features
+- **Target**: Rented Bike Count (integer)
+- **Missing Values**: None
+- **License**: Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+**Key Features:**
+- **Weather Data**: Temperature (°C), Humidity (%), Wind Speed (m/s), Visibility (10m), Dew Point (°C), Solar Radiation (MJ/m²), Rainfall (mm), Snowfall (cm)
+- **Temporal Features**: Date, Hour, Season (Winter/Spring/Summer/Autumn)
+- **Operational Features**: Holiday status, Functional Day indicator
+
+**Citation:**
+Seoul Bike Sharing Demand [Dataset]. (2020). UCI Machine Learning Repository. https://doi.org/10.24432/C5F62R.
 
 ## ⚡️ Architecture & Tech Stack
 
@@ -151,54 +181,22 @@ uvicorn src.api.app:app --host 0.0.0.0 --port 8000 --reload
 
 ```
 mlops/
-├── src/
-│   ├── api/                    # FastAPI application
-│   │   ├── app.py             # Main API service
-│   │   └── predict.py         # Prediction utilities
-│   ├── training/              # Training pipeline
-│   │   ├── train.py           # Main training script
-│   │   ├── train_core.py      # Core training logic
-│   │   └── prefect_orchestrator.py # Workflow orchestration
-│   ├── monitoring/            # Monitoring system
-│   │   ├── monitoring.py      # Evidently monitoring
-│   │   ├── test_monitoring.py # Monitoring tests
-│   │   └── integration_example.py # Integration example
-│   ├── models/                # Model definitions
-│   │   └── models.py          # Model configurations
-│   ├── data/                  # Data processing
-│   │   └── data_processing.py # Data preprocessing
-│   └── utils/                 # Utility functions
-│       ├── config.py          # Configuration management
-│       ├── aws_utils.py       # AWS integration
-│       └── mlflow_utils.py    # MLflow utilities
-├── tests/                     # Test suite
-│   ├── unit/                  # Unit tests
-│   ├── integration/           # Integration tests
-│   └── monitoring/            # Monitoring tests
-├── config/                    # Configuration files
-│   └── environments/          # Environment configs
-├── scripts/                   # Utility scripts
-│   ├── setup/                 # Setup scripts
-│   ├── deployment/            # Deployment scripts
-│   └── monitoring/            # Monitoring scripts
-├── docs/                      # Documentation
-│   ├── api/                   # API documentation
-│   ├── deployment/            # Deployment guides
-│   └── monitoring/            # Monitoring guides
-├── artifacts/                 # Generated artifacts
-│   ├── models/                # Trained models
-│   ├── reports/               # Generated reports
-│   └── logs/                  # Log files
-├── data/                      # Data files
-│   ├── SeoulBikeData.csv     # Training data
-│   ├── reference_data.csv    # Reference data for monitoring
-│   └── current_data.csv     # Current data for monitoring
-├── terraform/                 # Infrastructure as Code
-├── .github/workflows/         # CI/CD pipeline
-├── requirements.txt           # Dependencies
-├── Makefile                   # Build automation
-├── setup.py                   # Package setup
-└── README.md                  # This file
+├── src/                      # Source code
+│   ├── api/                  # FastAPI application
+│   ├── training/             # Training pipeline
+│   ├── monitoring/           # Model monitoring
+│   ├── models/               # Model definitions
+│   ├── data/                 # Data processing
+│   └── utils/                # Utility functions
+├── tests/                    # Test suite
+├── config/                   # Configuration files
+├── data/                     # Training and monitoring data
+├── notebook/                 # Jupyter notebooks (EDA & Models)
+├── terraform/                # Infrastructure as Code
+├── artifacts/                # Generated models and reports
+├── requirements.txt          # Dependencies
+├── Makefile                  # Build automation
+└── README.md                 # This file
 ```
 
 ## 📈 Monitoring & Testing
