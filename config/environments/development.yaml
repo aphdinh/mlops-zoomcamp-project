@@ -1,0 +1,32 @@
+# Development environment configuration
+environment: development
+
+# AWS Configuration
+aws:
+  region: eu-north-1
+  s3_bucket: seoul-bike-sharing-aphdinh
+  ec2_instance_type: t3.micro
+
+# MLflow Configuration
+mlflow:
+  tracking_uri: sqlite:///mlflow.db
+  artifact_uri: s3://seoul-bike-sharing-aphdinh/mlflow-artifacts/
+  experiment_name: seoul-bike-sharing-dev
+
+# Model Configuration
+model:
+  random_state: 42
+  test_size: 0.2
+  validation_size: 0.25
+
+# API Configuration
+api:
+  host: 0.0.0.0
+  port: 8000
+  reload: true
+
+# Monitoring Configuration
+monitoring:
+  drift_threshold: 0.05
+  performance_threshold: 0.8
+  monitoring_window_days: 30 
