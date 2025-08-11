@@ -4,7 +4,7 @@ A complete end-to-end machine learning project for predicting bike rental demand
 
 ## 📋 About
 
-This project demonstrates a production-ready MLOps pipeline for predicting Seoul bike sharing demand. Built with modern tools like MLflow, Prefect, FastAPI, and Evidently, it showcases best practices in machine learning operations including experiment tracking, workflow orchestration, model deployment, and continuous monitoring.
+This project demonstrates a production-ready MLOps pipeline for predicting Seoul bike sharing demand.
 
 **Key Features:**
 - 🚀 **End-to-end ML pipeline** with automated training and deployment
